@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./load-balancer
+    ports:
+      - "80:80"
+    depends_on:
+      - auth-service
+      - data-service
+    networks:
+      - app-network
+
+  # Authentication Microservice
+  auth-service:
+    build: ./auth-service
+    environment:
+      - PORT=3001
+      - MONGO_URI=mongodb://mongo:27017/authdb
+      - JWT_SECRET=ABCDEFGHIJKLMNOPQRSTUVWXYZ
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+    deploy:
+      replicas: 2 # number of replicas
+
+  # Data Microservice with Socket.IO
+  data-service:
+    build: ./data-service
+    environment:
+      - PORT=3002
+      - MONGO_URI=mongodb://mongo:27017/authdb
+      - JWT_SECRET=ABCDEFGHIJKLMNOPQRSTUVWXYZ
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+    deploy:
+      replicas: 3 # number of replicas
+
+  # Database
+  mongo:
+    image: mongo:4.4
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+  # Redis
+  redis:
+    image: redis:6.2-alpine
+    networks:
+      - app-network
+
+# network
+networks:
+  app-network:
+    driver: bridge
+
+# Volume for persistent Mongo data
+volumes:
+  mongo-data:
