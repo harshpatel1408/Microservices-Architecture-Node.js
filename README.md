@@ -4,6 +4,7 @@ A scalable microservices system using Node.js, Express, Socket.IO, MongoDB, Redi
 
 ---
 
+
 ## 📐 Architecture
 
 ```plaintext
@@ -23,12 +24,13 @@ A scalable microservices system using Node.js, Express, Socket.IO, MongoDB, Redi
 └──────┬───────┘   └──────┬───────┘
        │                  │
  ┌─────▼──────┐     ┌─────▼──────┐
- │ Mongo Auth │     │ Mongo Data │
+ │ Mongo Auth │     │ Mongo Data│
  └────────────┘     └────────────┘
                           │
                    ┌──────▼──────┐
                    │  Redis Pub  │
                    └─────────────┘
+```
 
 
 ### System Components
