@@ -6,27 +6,30 @@ A scalable microservices system using Node.js, Express, Socket.IO, MongoDB, Redi
 
 ## 📐 Architecture
 
+```plaintext
            ┌────────────┐
-           │  Client    │
+           │   Client   │
            └────┬───────┘
-        HTTP/WS │
+          HTTP / WebSocket
+                │
                 ▼
           ┌─────────────┐
-          │  NGINX LB   │
+          │   NGINX LB  │
           └────┬────────┘
-     ┌─────────┴──────────┐
-     │                    │
-┌────────────┐      ┌────────────┐
-│ Auth Svc x2│      │ Data Svc x3│
-└─────┬──────┘      └────┬───────┘
-      │                  │
-┌─────▼──────┐      ┌────▼────────┐
-│ Mongo Auth │      │ Mongo Data  │
-└────────────┘      └─────────────┘
-                       │
-                ┌──────▼──────┐
-                │  Redis Pub  │
-                └─────────────┘
+      ┌────────┴──────────┐
+      │                   │
+┌──────────────┐   ┌──────────────┐
+│ Auth Svc x2  │   │ Data Svc x3  │
+└──────┬───────┘   └──────┬───────┘
+       │                  │
+ ┌─────▼──────┐     ┌─────▼──────┐
+ │ Mongo Auth │     │ Mongo Data │
+ └────────────┘     └────────────┘
+                          │
+                   ┌──────▼──────┐
+                   │  Redis Pub  │
+                   └─────────────┘
+
 
 ### System Components
 
@@ -49,8 +52,8 @@ A scalable microservices system using Node.js, Express, Socket.IO, MongoDB, Redi
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/microservices-node-architecture.git
-cd microservices-node-architecture
+https://github.com/harshpatel1408/Microservices-Architecture-Node.js.git
+cd Microservices-Architecture-Node.js
 ```
 
 ### 3. Configure Environment Variables
@@ -128,7 +131,7 @@ NGINX routes requests only to healthy instances.
 |--------|------------------------------------------------|--------------------------|
 | GET    | `/health`                                      | Health check             |
 | POST   | `/data`                                        | Add user profile data    |
-| PUT    | `/updatestatus?userData=<userId>`              | Update user status       |
+| PUT    | `/updatestatus`              | Update user status       |
 
 ### 📬 Postman Collection
 
@@ -148,14 +151,13 @@ Use this collection for testing:
 - **Containerization**: Docker, Docker Compose
 
 ---
----
 
 ## 🪪 License
 
-MIT License © [Harsh Patel]
+MIT License © Harsh Patel
 
 ---
 
 ## 🙋‍♂️ Author
 
-- **[Harsh Patel]** – [@your-github](https://github.com/your-username)
+- **Harsh Patel** – [@harshpatel1408](https://github.com/harshpatel1408/Microservices-Architecture-Node.js.git)
