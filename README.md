@@ -1,11 +1,11 @@
-# 🧱 Microservices Architecture with Node.js, Docker, NGINX, and Redis
+# Microservices Architecture with Node.js, Docker, NGINX, and Redis
 
 A scalable microservices system using Node.js, Express, Socket.IO, MongoDB, Redis, and Docker Compose, with NGINX as a reverse proxy and load balancer.
 
 ---
 
 
-## 📐 Architecture
+## Architecture
 
 ```plaintext
            ┌────────────┐
@@ -24,7 +24,7 @@ A scalable microservices system using Node.js, Express, Socket.IO, MongoDB, Redi
 └──────┬───────┘   └──────┬───────┘
        │                  │
  ┌─────▼──────┐     ┌─────▼──────┐
- │ Mongo Auth │     │ Mongo Data│
+ │ Mongo Auth │     │ Mongo Data │
  └────────────┘     └────────────┘
                           │
                    ┌──────▼──────┐
@@ -44,7 +44,7 @@ A scalable microservices system using Node.js, Express, Socket.IO, MongoDB, Redi
 
 ---
 
-## ⚙️ Setup Guide
+## Setup Guide
 
 ### 1. Prerequisites
 
@@ -88,7 +88,7 @@ NGINX routes requests only to healthy instances.
 
 ---
 
-## 🚀 Bonus Features
+## Bonus Features
 
 - **Rate Limiting**: Applied using NGINX’s `limit_req_zone` directive.
 - **Logging**:
@@ -98,7 +98,7 @@ NGINX routes requests only to healthy instances.
 
 ---
 
-## 🧪 Testing and Validation
+## Testing and Validation
 
 - **Health Check**
   ```bash
@@ -117,9 +117,9 @@ NGINX routes requests only to healthy instances.
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
-### 🔐 Auth Service - `http://localhost/auth`
+### Auth Service - `http://localhost/auth`
 
 | Method | Endpoint      | Description           |
 |--------|---------------|-----------------------|
@@ -127,7 +127,7 @@ NGINX routes requests only to healthy instances.
 | POST   | `/signup`     | Register new user     |
 | GET    | `/login`      | Login user            |
 
-### 📦 Data Service - `http://localhost/api`
+### Data Service - `http://localhost/api`
 
 | Method | Endpoint                                       | Description              |
 |--------|------------------------------------------------|--------------------------|
@@ -135,15 +135,15 @@ NGINX routes requests only to healthy instances.
 | POST   | `/data`                                        | Add user profile data    |
 | PUT    | `/updatestatus`              | Update user status       |
 
-### 📬 Postman Collection
+### Postman Collection
 
 Use this collection for testing:
 
-👉 [Open in Postman](https://interstellar-space-87990.postman.co/workspace/My-Workspace~6a3b5bc9-569b-486c-8c67-8d284b9e1589/collection/10047749-4906e9eb-ec83-4b6b-9718-e5943bd87207?action=share&creator=10047749)
+[Open in Postman](https://interstellar-space-87990.postman.co/workspace/My-Workspace~6a3b5bc9-569b-486c-8c67-8d284b9e1589/collection/10047749-4906e9eb-ec83-4b6b-9718-e5943bd87207?action=share&creator=10047749)
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Backend**: Node.js, Express
 - **Real-Time**: Socket.IO + Redis Adapter
@@ -154,12 +154,12 @@ Use this collection for testing:
 
 ---
 
-## 🪪 License
+## License
 
 MIT License © Harsh Patel
 
 ---
 
-## 🙋‍♂️ Author
+## Author
 
 - **Harsh Patel** – [@harshpatel1408](https://github.com/harshpatel1408/Microservices-Architecture-Node.js.git)
